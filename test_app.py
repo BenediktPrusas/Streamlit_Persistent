@@ -30,7 +30,7 @@ def callback():
 if select == "Settings the rigth way":
 
     value="value_three"
-    default_value=20
+    default_value=20.0
     key="key three"
 
     st.info("This has now the behaviour as you would expect.")
@@ -42,9 +42,10 @@ if select == "Settings the rigth way":
         st.session_state[value] = st.session_state[key]
 
     if key not in st.session_state:
-        st.number_input(label="Setting Three", value=st.session_state[value], key=key)
+        st.number_input(label="Setting Three", value=st.session_state[value], key=key,step=1.0)
     else:
-        st.number_input(label="Setting Three", on_change=update_value(value,key) ,value=st.session_state[value],key=key)''')
+        st.number_input(label="Setting Three", on_change=update_value(value,key) ,value=st.session_state[value],key=key,step=1.0)
+    ''')
 
     if value not in st.session_state:
         st.session_state[value]=default_value
@@ -53,9 +54,9 @@ if select == "Settings the rigth way":
         st.session_state[value] = st.session_state[key]
 
     if key not in st.session_state:
-        st.number_input(label="Setting Three", value=st.session_state[value], key=key)
+        st.number_input(label="Setting Three", value=st.session_state[value], key=key,step=1.0)
     else:
-        st.number_input(label="Setting Three", on_change=update_value(value,key) ,value=st.session_state[value],key=key)
+        st.number_input(label="Setting Three", on_change=update_value(value,key) ,value=st.session_state[value],key=key,step=1.0)
 
 
 st.session_state
